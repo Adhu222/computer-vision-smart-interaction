@@ -21,7 +21,7 @@ This project is an **AI-powered object detection system** that allows users to u
 │   ├── object_detection.py       # YOLOv8 model for detecting objects
 │   ├── requirements.txt          # Backend dependencies
 │   ├── static/                   # Stores processed images/videos (Auto-filled)
-│   ├── models/                   # Stores YOLOv8 pre-trained model (Manually add)
+│   ├── models/                   # Stores YOLOv8 pre-trained model (Manually add yolov8n.pt)
 │   ├── uploads/                  # Stores uploaded images/videos (Auto-filled)
 │
 ├── frontend/                     # React Frontend (User Interface)
@@ -58,7 +58,7 @@ This project is an **AI-powered object detection system** that allows users to u
 
 ---
 
-##  **Installation & Setup**
+## 🚀 **Installation & Setup**
 
 ### **1️⃣ Install Backend Dependencies**
 📌 Open a terminal inside `backend/` and run:
@@ -67,7 +67,18 @@ cd backend
 pip install -r requirements.txt
 ```
 
-### **2️⃣ Start the Flask Backend**
+### **2️⃣ Download the YOLOv8 Model**
+The `models/` folder is **empty by default**. You must **download the YOLOv8 model** before running the project.  
+Run the following command in Python:
+```python
+from ultralytics import YOLO
+YOLO("yolov8n.pt")  # This will automatically download the model
+```
+Once downloaded, **move `yolov8n.pt` into `backend/models/`**.
+
+---
+
+### **3️⃣ Start the Flask Backend**
 ```bash
 python main.py
 ```
@@ -75,14 +86,14 @@ python main.py
 
 ---
 
-### **3️⃣ Install Frontend Dependencies**
+### **4️⃣ Install Frontend Dependencies**
 📌 Open another terminal inside `frontend/` and run:
 ```bash
 cd frontend
 npm install
 ```
 
-### **4️⃣ Start the React Frontend**
+### **5️⃣ Start the React Frontend**
 ```bash
 npm start
 ```
@@ -90,7 +101,7 @@ npm start
 
 ---
 
-##  **How to Use the Application**
+## 📤 **How to Use the Application**
 
 1️⃣ Open **http://localhost:3000/** in your browser.  
 2️⃣ Click **"Choose File"**, select an image, and click **Upload**.  
@@ -117,6 +128,13 @@ npm -v
 ✅ Ensure Flask is installed and run:
 ```bash
 python main.py
+```
+
+### ❌ `YOLOv8 model not found`
+✅ Ensure `yolov8n.pt` is inside `backend/models/`. If missing, download it:
+```python
+from ultralytics import YOLO
+YOLO("yolov8n.pt")
 ```
 
 ---
